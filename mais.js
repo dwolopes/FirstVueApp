@@ -6,8 +6,29 @@ var vm = new Vue({
     spaceships: []
   },
   methods: {
+    //Private Method
     _consumablesConvert: function(consumables){
-      console.log(consumables)
+      arrayConsumables = consumables.split(' ')
+      let numberRelatedToTheTime = parseInt(arrayConsumables[0])
+      let dayWeekOrMonth = arrayConsumables[arrayConsumables.length - 1]
+      let totalDaysOfautonomy = 0;
+      switch(dayWeekOrMonth.charAt(0)){
+        case 'y':
+          totalDaysOfautonomy = numberRelatedToTheTime * 365
+          break
+        case 'm':
+          totalDaysOfautonomy = numberRelatedToTheTime * 30
+          break
+        case 'w':
+          totalDaysOfautonomy = numberRelatedToTheTime * 7
+          break
+        case 'd':
+          totalDaysOfautonomy = numberRelatedToTheTime
+          break
+        default:
+        totalDaysOfautonomy = 0
+      }
+      return totalDaysOfautonomy
     },
     stopCalculator: function () {
       if(vm.distance <= 0) return this.msg = 'A distância deve ser maior que Zero :('
@@ -15,12 +36,14 @@ var vm = new Vue({
       let hoursPerDay = 24
       let mgltStringToInt = 0
       let mgltPerDay = 0
-      let daysOfTravelTotal = 0;
+      let daysOfTravelTotal = 0.00;
       vm.spaceships.map(function(spaceship){
         mgltStringToInt = parseInt(spaceship.MGLT,10) 
         mgltPerDay = hoursPerDay * mgltStringToInt
-        daysOfTravelTotal = Math.round(vm.distance/mgltPerDay)
-        vm._consumablesConvert(spaceship.consumables)
+        daysOfTravelTotal = vm.distance / mgltPerDay
+        totalDaysOfautonomy = vm._consumablesConvert(spaceship.consumables)
+        stopNecessaries = Math.round(daysOfTravelTotal / totalDaysOfautonomy)
+        console.log(`${spaceship.name} e paradas: ${stopNecessaries}`)
       })
     }
   },
