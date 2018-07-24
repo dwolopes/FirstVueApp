@@ -24,10 +24,13 @@
                     <input type="number" class="form-control" id="inlineFormInputName" v-model.lazy="distance" placeholder="Distância em mega lights (MGLT)">
                 </div>
                 <div class="col-auto my-1">
-                    <button type="submit" class="btn btn-primary" @click="stopCalculator">Calcular</button>
+                    <button type="submit" class="btn btn-primary" @click.prevent="stopCalculator()">Calcular</button>
                 </div>
             </div>
             <h2 v-if="distance > 0">{{distance}}</h2>
+            <div class="alert alert-warning" role="alert">
+                {{msg}}
+            </div>
         </form>
         <ul v-for="spaceship in spaceships">
             <li>{{spaceship.name}}</li>
