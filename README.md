@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone project:
 
     ```
-    $ [sudo] git clone git@github.com: https://github.com/dwolopes/vueGetrack.git
+    $ [sudo] git clone: https://github.com/dwolopes/vueGetrack.git
 
 2. Serve the application:
 
