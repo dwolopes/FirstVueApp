@@ -1,0 +1,11 @@
+/*General Styles*/
+
+body {
+    background-color: rgba(24, 65, 127, 0.1);
+}
+
+/*Jumbotron Style and its elements*/
+.jumbotron {
+    background-color: rgba(24, 65, 127, 0.3);
+    font-weight: bold;
+}

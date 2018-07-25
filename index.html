@@ -9,32 +9,45 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     
     <!-- The main CSS -->
-    <link rel="stylesheet" type="text/css" media="screen" href="./mais.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
 
     <!-- Vue JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-
-    <div class="container" id="container-form">
-        <form>
-            <div class="form-row align-items-center">
-                <div class="col-sm-3 my-1">
-                    <label class="sr-only" for="inlineFormInputName">Distância</label>
-                    <input type="number" class="form-control" id="inlineFormInputName" v-model.lazy="distance" placeholder="Distância em mega lights (MGLT)">
+    <div id="container-form" style="text-align: center">
+        <div class="jumbotron">
+            <h1 class="display-4">Olá Astronauta</h1>
+            <p class="lead">
+                Descubra qual nave espacial é ideal para você! Cada nave tem uma autonomia dependendo da distância que você irá percorrer.
+            </p>
+            <hr class="my-4">
+            <p>Digite no campo abaixo, qual a distância mega lights (MGLT) você irá percorrer e escolha a nave com menos ou mais pontos de paradas no espaço.</p>
+            <form>
+                <div class="form-row justify-content-center">
+                    <div class="col-sm-3 my-1">
+                        <label class="sr-only" for="distanceMglt">Distância</label>
+                        <input type="number" class="form-control" id="distanceMglt" v-model="distance" placeholder="Distância em mega lights (MGLT)">
+                    </div>
                 </div>
-                <div class="col-auto my-1">
-                    <button type="submit" class="btn btn-primary" @click.prevent="stopCalculator()">Calcular</button>
+            </form>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div v-if="spaceshipsWithstopNecessaries.length <= 0" class="col-sm-3 alert alert-info" role="alert">
+                    {{msg}}
+                </div>
+                <div class="col-sm-3" v-for="spaceship in spaceshipsWithstopNecessaries">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/starship.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text"> <b>Nome:</b> {{spaceship.name}}</p>
+                            <p class="card-text"> Paradas: {{spaceship.stopNecessaries}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <h2 v-if="distance > 0">{{distance}}</h2>
-            <div class="alert alert-warning" role="alert">
-                {{msg}}
-            </div>
-        </form>
-        <ul v-for="spaceship in spaceships">
-            <li>{{spaceship.name}}</li>
-        </ul>
+        </div>
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -43,6 +56,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
     <!-- The main JS-->
-    <script src="./mais.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
