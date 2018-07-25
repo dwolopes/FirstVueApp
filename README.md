@@ -15,7 +15,7 @@ These instructions will get you a copy of the project up and running on your loc
 2. Serve the application:
 
     ```
-    $ [sudo] python -m SimpleHTTPServer
+    $ [sudo] python -m http.server 8000
     ```
 3. Open the game:
 
