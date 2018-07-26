@@ -16,7 +16,7 @@ These instructions will get you a copy of the project up and running on your loc
 2. Extract the file:
 
     ```
-    After the extract the folder, open it and click in the index.html file inside de folder. It will open in your
+    After extract the folder, open it and click in the index.html file inside de folder. It will open in your
     favorite browser. Make sure you have access to Internet.
 
 ### Using Python
