@@ -8,7 +8,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Browser
 
-1. Run the the file [index.html](./index.html) in your favorite browser
+1. Clone project:
+
+    ```
+    $ [sudo] git clone: https://github.com/dwolopes/vueGetrack.git
+
+2. Extract the file:
+
+    ```
+    After the extract the folder, open it and click in the index.html file inside de folder. It will open in your
+    favorite browser. Make sure you have access to Internet.
 
 ### Using Python
 
